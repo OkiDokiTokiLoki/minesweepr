@@ -10,7 +10,7 @@ function createBoard(rows, columns){
             const $col = $('<div>')
             .addClass('col hidden')
             .attr('data-row', i)
-            .attr('data-col', j)
+            .attr('data-col', j);
             if (Math.random() < 0.1){
                 $col.addClass('mine');
             }
@@ -30,10 +30,10 @@ function gameOver(isWin){
     let message = null;
     let icon = null;
     if (isWin){
-        message = "Nicely done, you win this round!";
+        message = 'Nicely done! You win this round';
         icon = 'fa fa-flag';
     } else{
-        message = 'Oof! Better luck next time';
+        message = 'Oooh! Better luck next time';
         icon = 'fa fa-bomb';
     }
 
@@ -41,7 +41,7 @@ function gameOver(isWin){
         $('<i>').addClass(icon)
     );
 
-    $('.col:not(.mine')
+    $('.col:not(.mine)')
         .html(function(){
             const $cell = $(this);
             const count = getMineCount(
@@ -50,11 +50,11 @@ function gameOver(isWin){
             );
             return count === 0 ? '' : count;
         })
-    $('.col.hidden').removeClass('hidden')
+    $('.col.hidden').removeClass('hidden');
     setTimeout(function(){
         alert(message);
         restart();
-    }, 400);
+    }, 400);    
 }
 
 function reveal(oi, oj){
@@ -68,7 +68,7 @@ function reveal(oi, oj){
             $(`.col.hidden[data-row=${i}][data-col=${j}]`);
         const mineCount = getMineCount(i, j);
         if (
-            !$cell.hasClass('hidden') ||
+            !$cell.hasClass('hidden') || 
             $cell.hasClass('mine')
         ){
             return;
@@ -76,7 +76,7 @@ function reveal(oi, oj){
 
         $cell.removeClass('hidden');
 
-        if (mineCount){
+        if (mineCount) {
             $cell.text(mineCount);
             return;
         }
@@ -100,7 +100,7 @@ function getMineCount(i, j){
             if (newi >= ROWS || newj >= COLS || newj < 0 || newi < 0) continue;
             const $cell = 
                 $(`.col.hidden[data-row=${newi}][data-col=${newj}]`);
-            if ($cell.hasClass('mine')) count ++;
+            if ($cell.hasClass('mine')) count++;
         }
     }
     return count;
@@ -114,7 +114,7 @@ $board.on('click', '.col.hidden', function(){
         gameOver(false);
     } else{
         reveal(row, col);
-        const isGameOver = $('.col.hidden').length === $('col.mine').length
+        const isGameOver = $('.col.hidden').length === $('.col.mine').length
         if (isGameOver) gameOver(true);
     }
 })
