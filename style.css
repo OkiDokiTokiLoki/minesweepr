@@ -23,6 +23,19 @@ span:hover{
     color: hsl(145, 100%, 58%);
 }
 
+.hint{
+    position: absolute;
+    left: 20%;
+    top: 40%;
+    font-size: 1rem;
+    max-width: 300px;
+    opacity: 0;
+}
+
+#hint:hover ~ .hint{
+    opacity: 1;
+}
+
 #board{
     border: none;
     display: inline-block;
@@ -70,17 +83,4 @@ span:hover{
 
 .col.mine{
     color: hsl(310, 74%, 32%);
-}
-
-.hint{
-    position: absolute;
-    left: 20%;
-    top: 40%;
-    font-size: 1rem;
-    max-width: 300px;
-    opacity: 0;
-}
-
-#hint:hover ~ .hint{
-    opacity: 1;
 }
