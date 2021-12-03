@@ -71,3 +71,16 @@ span:hover{
 .col.mine{
     color: hsl(310, 74%, 32%);
 }
+
+.hint{
+    position: absolute;
+    left: 20%;
+    top: 40%;
+    font-size: 1rem;
+    max-width: 300px;
+    opacity: 0;
+}
+
+#hint:hover ~ .hint{
+    opacity: 1;
+}
