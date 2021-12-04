@@ -1,4 +1,4 @@
-<h3>Minesweepr</h3>
+## Minesweepr
 
 [Live demo](https://okidokitokiloki.github.io/minesweepr/)
 
